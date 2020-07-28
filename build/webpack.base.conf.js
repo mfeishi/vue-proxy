@@ -106,7 +106,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: 'base template',
+			title: 'vue-proxy',
 			filename: 'index.html',
 			template: resolve(__dirname, '../public/index.html'),
 			hash: true, //给生成的 js 文件一个独特的 hash 值

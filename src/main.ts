@@ -1,13 +1,24 @@
 import Mvvm from './js/mvvm';
+import {Vm} from './js/config/interface';
 
 
-
-var vm = new Mvvm({
+let vm:Vm = new Mvvm({
 	el:"#app",
 	data:{
 		age:111,
-		name:'hema'
+		name:'hema',
+		list:['www','eeeee'],
+		obj:{
+			tx:3333,
+			mm:444
+		}
 	}
 })
+console.error(vm,vm.$options,'vvvvvvmmmmm')
+// vm.age = 4444
+// console.error(vm.age)
 
-// console.error(vm.$options.data.age)
+// vm.list.push(333)
+// console.error(vm.list)
+
+// vm.$data.list.push(111)
