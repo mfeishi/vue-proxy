@@ -14,13 +14,18 @@
 		</noscript>
 		<div id="app">
 				<div id="box">
-					1111
 					<span>wwwww</span>
+					<i style="color: grey;cursor: pointer;" v-text="innerText"></i>
 				</div>
-				<h4>
-					<b>3333</b>
-					<s>{{name}}</s>
+				
+				<h4 class="test1">
+					<b style="color: green;">3333 </b>
+					<h5>{{name}}</h5>	
+					<h4 v-text="innerText"></h4>			
 				</h4>
+				<button style="cursor: pointer;" v-on:click="increase">
+					testbtn
+				</button>
 				
 				{{age}}
 		</div>

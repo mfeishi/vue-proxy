@@ -19,9 +19,9 @@ export default class Mvvm {
 	init(){
 		let {data,el} = this.$options;
 		new observer(data,this)  //参数data递归属性代理
-		this.proxyVmData(data) //实例属性代理到实例的$data属性
+		this.proxyVmData(data) //访问实例属性代理到实例的$data属性
 		
-		new compile(el)
+		new compile(el,this._vm) //this._vm代理后的vm实例
 		
 	}
 	proxyVmData(data:any){  //属性代理 用vm.property 代替 vm.$data.property

@@ -4,8 +4,10 @@ import {Vm} from './config/interface';
 
 export default class Observer{
 	private $vm:Vm;
+	private $dep:any;
 	constructor(data:any={},vm:Vm){		
 		this.$vm = vm;
+		this.$dep = new Dep();
 		this.observe(data)
 	}
 	observe(data:any={}){ //递归监听对象所有属性，属性的属性。。。。
@@ -15,18 +17,21 @@ export default class Observer{
 		Object.keys(data).forEach(key=>{			
 			data[key] = this.observe(data[key])
 		})
-		
 		return this.defineReactive(data)
 	}
-	defineReactive(data:any={}){	
+	defineReactive(data:any={}){		
+		let dep = this.$dep;
 		this.$vm.$data =  new Proxy(data,{
 			get(target,key){
-				console.error(target,key,'gettt')
+				// console.error(target,key,Dep.target,'gettt')
+				// Dep.target&&dep.addSub(Dep.target)
+				Dep.target&&dep.depend()
 				return Reflect.get(target,key)
 			},
 			set(target,key,value){
-				console.error(target,key,value,'setttt')
+				console.error(target,key,value,'setttt')			
 				let res = Reflect.set(target, key, value);
+				dep.notify()
 				return res;
 			}
 		})

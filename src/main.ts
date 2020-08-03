@@ -8,13 +8,20 @@ let vm:Vm = new Mvvm({
 		age:111,
 		name:'hema',
 		list:['www','eeeee'],
+		innerText:"testss",
 		obj:{
 			tx:3333,
 			mm:444
 		}
+	},
+	methods:{
+		increase(){
+			this.age = this.age+1
+			// this.age = 777
+		}
 	}
 })
-console.error(vm,vm.$options,'vvvvvvmmmmm')
+// console.error(vm,vm.$options,'vvvvvvmmmmm')
 // vm.age = 4444
 // console.error(vm.age)
 
