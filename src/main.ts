@@ -18,6 +18,9 @@ let vm:Vm = new Mvvm({
 		increase(){
 			this.age = this.age+1
 			// this.age = 777
+		},
+		changeInnerText(){
+			this.innerText = 'changetext'
 		}
 	}
 })

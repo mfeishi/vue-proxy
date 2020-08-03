@@ -14,21 +14,15 @@ export default class Watcher{
         this.fn = fn;
         this.wid = wid++;
         this.oldValue = this.get();
-        // console.error(this.oldValue,'ol')
+     
     }
     update(){
         let vm =this.vm;
         let oldValue = this.oldValue;
         let newValue = this.get();
-       
-
         if (oldValue !== newValue) {
-            // console.error(oldValue,newValue,'old-newvalue')
-            // this.value = value;
             this.fn.call(vm,newValue,oldValue)
         }
-      
-
     }
     get(){
         Dep.target = this;

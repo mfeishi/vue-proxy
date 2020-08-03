@@ -24,10 +24,13 @@
 					<h4 v-text="innerText"></h4>			
 				</h4>
 				<button style="cursor: pointer;" v-on:click="increase">
-					testbtn
+					increaseAge
+				</button>
+				<h5>age:  <span>{{age}}</span></h5>
+				<button style="cursor: pointer;" v-on:click="changeInnerText">
+					changeInnerText
 				</button>
 				
-				{{age}}
 		</div>
 
 	</body>

@@ -31,7 +31,7 @@ export default class Observer{
 			set(target,key,value){
 				// console.error(target,key,target[key],value,'setttt')		
 				if(target[key] === value){
-					return false;
+					return  Reflect.set(target, key, value);
 				}
 				let res = Reflect.set(target, key, value);
 				dep.notify()
